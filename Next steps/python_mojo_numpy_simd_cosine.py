@@ -1,5 +1,5 @@
-#
-# this code will hopefully help you use mojo, hand in hand with python
+# the file is named .py to have colors. it should be .mojo
+# it will hopefully help you use mojo, hand in hand with python
 # this code is also part of the [community effort](https://github.com/Lynet101/Mojo_community-lib)
 ```
 from python import Python
