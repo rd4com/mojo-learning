@@ -1,4 +1,4 @@
-# Linux, open the terminal and type
+# Open the terminal and type
 ```
 gedit intro.mojo&
 ```
