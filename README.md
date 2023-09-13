@@ -24,3 +24,4 @@ mojo build intro.mojo
 ```
 ./intro
 ```
+More mini-tutorials in the folder mini tutorials.
