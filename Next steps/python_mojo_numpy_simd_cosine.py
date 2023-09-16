@@ -6,7 +6,7 @@ from python import Python
 from python import PythonObject
 from math import math
 from time import now
-from sys.intrinsics import llvm_intrinsic
+
 struct np_loader:
     var lib:PythonObject
     var loaded: Bool
