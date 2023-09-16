@@ -2,7 +2,7 @@ from python import Python
 from python import PythonObject
 from math import math
 from time import now
-from sys.intrinsics import llvm_intrinsic
+
 struct np_loader:
     var lib:PythonObject
     var loaded: Bool
@@ -31,8 +31,6 @@ fn main() raises:
         var after:Int64
         #compute one cycles of 256hz
 
-        #https://llvm.org/docs/LangRef.html#llvm-readcyclecounter-intrinsic
-        #llvm_intrinsic["llvm.readcyclecounter",Int64]
 
         var backup = simd_mojo_array
 
@@ -40,9 +38,9 @@ fn main() raises:
         var tmp:Int64
         for i in range(1000000):
             simd_mojo_array = backup
-            start= llvm_intrinsic["llvm.readcyclecounter",Int64]() #now()
+            start= now()
             simd_mojo_array = math.cos(simd_mojo_array*(pi*2.0/256.0))
-            after=llvm_intrinsic["llvm.readcyclecounter",Int64]() #now()
+            after= now()
             tmp=after-start
             #print(tmp)
             if tmp<min_cnt:
