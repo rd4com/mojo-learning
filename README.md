@@ -24,4 +24,5 @@ mojo build intro.mojo
 ```
 ./intro
 ```
-More mini-tutorials in the folder mini tutorials.
+
+# [Python land and mojo land, introduction with numpy and matplotlib](./Python_land_and_mojo_land__introduction_with_numpy_and_matplotlib.md)
