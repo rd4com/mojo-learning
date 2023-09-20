@@ -1,3 +1,5 @@
+# this repo is also part of the [mojo community effort](https://github.com/Lynet101/Mojo_community-lib)
+
 # Open the terminal and type
 ```
 gedit intro.mojo&
@@ -26,3 +28,4 @@ mojo build intro.mojo
 ```
 
 # [Python land and mojo land, introduction with numpy and matplotlib](./Python_land_and_mojo_land__introduction_with_numpy_and_matplotlib.md)
+# [Simd cosine with numpy linear space](./Next%20steps/python_mojo_numpy_simd_cosine.md)
