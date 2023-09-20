@@ -1,4 +1,4 @@
-# this repo is also part of the [mojo community effort](https://github.com/Lynet101/Mojo_community-lib)
+> this repo is also part of the [mojo community effort](https://github.com/Lynet101/Mojo_community-lib)
 
 # Open the terminal and type
 ```
