@@ -1,3 +1,6 @@
+## Version of mojo when written: v0.3.0
+#### This is not an official documentation, this is a community effort, there could be incorrect infos here, please see [the official documentation of mojo](https://docs.modular.com/mojo/).
+> There are links to the official documentation wich is very precise and awesome.
 ```python
 from python import Python
 from python import PythonObject
