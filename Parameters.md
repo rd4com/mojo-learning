@@ -1,5 +1,5 @@
 ## Version of mojo when written: v0.3.0
-
+#### This is not an official documentation, there could be incorrect infos here, please see [the official documentation of mojo](https://docs.modular.com/mojo/).
 >Parameters represents compile time values. [Mojo documentation: parameterization](https://docs.modular.com/mojo/programming-manual.html#parameterization-compile-time-metaprogramming)
 
 `[T:AnyType]` anything passed to theses need to be a compile time value.
