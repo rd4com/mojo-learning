@@ -9,5 +9,6 @@ fn main():
     print("mojo") #https://docs.modular.com/mojo/stdlib/builtin/io.html#print
 ```
 
-## [Python land and mojo land, introduction with numpy and matplotlib](./Python_land_and_mojo_land__introduction_with_numpy_and_matplotlib.md)
-## [Simd cosine with numpy linear space](./Next%20steps/python_mojo_numpy_simd_cosine.md)
+### [Python land and mojo land, introduction with numpy and matplotlib](./Python_land_and_mojo_land__introduction_with_numpy_and_matplotlib.md)
+### [Simd cosine with numpy linear space](./python_mojo_numpy_simd_cosine.md)
+### [Parameters](./Parameters.md)
