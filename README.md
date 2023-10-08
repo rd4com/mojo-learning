@@ -1,12 +1,13 @@
 
 
-> ##  ⚠️  not affiliated with Modular or Mojo
+##  ⚠️  not affiliated with Modular or Mojo
 
  
 ### Visit [🔗 Learning mojo language](https://rd4com.github.io/mojo-learning/) for an html expenrience 🟢
 
 ### [corrections and contributions](/contribute) 🫵 it is a [community effort](https://github.com/Lynet101/Mojo_community-lib)
 
+> ## Menu: [🔦 Introduction](/introduction.md)
 ## Why learning Mojo? 
 **Unifying** the **high level** world and the **low level** world into a **single language** provides many great things:
 - **choose how time is used on any part of the app** by switching from high level to low level (usefull when prototyping or exploring ideas).
@@ -46,11 +47,11 @@ It is easy to imagine that one person knowing mojo/modular could one day be able
 &nbsp; 
 
 
->### Let's take the time to say thank you to the modular/mojo team.
->### This website is just a community effort, the ressources 
->### available on the official website of modular/mojo
->### are the best if you want to learn!
->### Here are some links to theses:
+### Let's take the time to say thank you to the modular/mojo team.
+### This website is just a community effort, the ressources 
+### available on the official website of modular/mojo
+### are the best if you want to learn!
+### Here are some links to theses:
 &nbsp;
 
 ---
