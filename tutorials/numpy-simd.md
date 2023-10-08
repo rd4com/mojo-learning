@@ -1,10 +1,5 @@
----
-title: simd cosine with np.linspace
-author: rd4com
-layout: page
-description: import numpy using ```try:``` and ```except:``` inside a struct wrapper, meta-programming with ```__getitem__``` to get linspace, conversion to ```SIMD[DType.float64,size]```, apply ```math.cos()```
-permalink: numpy-simd-meta-programming
----
+
+# simd cosine with np.linspace
 The simd part need revision,
 it is not good practice. update soon!
 ```python

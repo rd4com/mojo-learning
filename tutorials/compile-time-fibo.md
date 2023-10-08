@@ -1,11 +1,5 @@
----
-title: 📸 pre-calculate fibonacci at compilation   
-author: rd4com
-layout: page
-description: stored as an alias, used as a a parameter, materialised as a string
-permalink: pre-calculate-fibonnaci-during-compilation
----
 
+# 📸 pre-calculate fibonacci at compilation   
 ```python
 @nonmaterializable(Int)
 struct ComptimeFibonnaci:
