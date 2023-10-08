@@ -42,7 +42,7 @@ It is easy to imagine that one person knowing mojo/modular could one day be able
 - 💻 Desktop softwares
 - 📱 Mobile apps
 - ⏧ Robotics and IOT using micro-controllers
-- 🤖 Performant and energy effient A.I
+- 🤖 Performant A.I
 - 🎮 video games
 
 &nbsp; 
