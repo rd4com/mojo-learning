@@ -6,7 +6,7 @@
 ## Menu: [🔦 Introduction](/introduction.md)&nbsp;&nbsp;&nbsp;[🫵 Contribute](contribute.md)&nbsp;&nbsp;&nbsp;[📖 Tutorials](tutorials.md)
 
 
-#### [corrections and contributions](/contribute) 🫵 it is a [community effort](https://github.com/Lynet101/Mojo_community-lib)
+#### [corrections and contributions](contribute.md) it is [community effort](https://github.com/Lynet101/Mojo_community-lib)
 
 
 ## Why learning Mojo? 
@@ -49,7 +49,7 @@ It is easy to imagine that one person knowing mojo/modular could one day be able
 
 
 ### Let's take the time to say thank you to the modular/mojo team.
-### This website is just a community effort, the ressources 
+### This repository is just a community effort, the ressources 
 ### available on the official website of modular/mojo
 ### are the best if you want to learn!
 ### Here are some links to theses:
