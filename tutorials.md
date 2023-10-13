@@ -1,8 +1,11 @@
-# [Python land and mojo land, PythonObject back and forth](tutorials/python-world-mojo-world.md) 
+# [🔁 Python land and mojo land, PythonObject](tutorials/python-world-mojo-world.md) 
 there is also an example with a lot of comments using numpy and matplotlib. 
 
 # [🛣️ 🚌 multi-core (parallelize) with simd](tutorials/multi-core-parallelize-with-simd%20.md) 
 simd and parallelize.
+
+# 🫙 [struct as a namespace (@staticmethod)](tutorials/struct-as-namespace.md)
+example: wrap python functions
 
 # 🤙 [callbacks trough parameters](tutorials/callbacks-trough-parameters.md)
 toy markdown generator as an example

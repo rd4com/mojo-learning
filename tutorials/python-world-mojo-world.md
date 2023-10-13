@@ -1,4 +1,4 @@
-#  Python land and mojo land, PythonObject back and forth
+# 🔁 Python land and mojo land, PythonObject
 
 [PythonObject](https://docs.modular.com/mojo/stdlib/python/object.html) is a mojo type that can store python objects of any python class (int, list,ndarray..)
 - can "travel" trough **mojo functions**, as a PythonObject, but can also be passed to **python functions**, as a PythonObject.
