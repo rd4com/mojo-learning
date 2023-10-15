@@ -7,6 +7,10 @@ simd and parallelize.
 # 🫙 [struct as a namespace (@staticmethod)](tutorials/struct-as-namespace.md)
 example: wrap python functions
 
+# [🏳️ make test builds using a custom flag](tutorials/make-test-builds-using-a-custom-flag.md)
+mojo build program.mojo -D...
+
+
 # 🤙 [callbacks trough parameters](tutorials/callbacks-trough-parameters.md)
 toy markdown generator as an example
 
@@ -18,5 +22,3 @@ stored as an alias, used as a a parameter, materialised as a string
 
 # [simd cosine with np.linspace](tutorials/numpy-simd.md)
 import numpy using ```try:``` and ```except:``` inside a struct wrapper, meta-programming with ```__getitem__``` to get linspace, conversion to ```SIMD[DType.float64,size]```, apply ```math.cos()```
-
-
