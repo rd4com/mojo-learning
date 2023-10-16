@@ -10,6 +10,8 @@ example: wrap python functions
 # [🏳️ make test builds using a custom flag](tutorials/make-test-builds-using-a-custom-flag.md)
 mojo build program.mojo -D...
 
+# [🕯️ reader.read\[Int32,"swap"\](3) in 45 lines](tutorials/reader-in-few-lines-with-endian-ness.md)
+v0.4.0: powerfull magic 
 
 # 🤙 [callbacks trough parameters](tutorials/callbacks-trough-parameters.md)
 toy markdown generator as an example
