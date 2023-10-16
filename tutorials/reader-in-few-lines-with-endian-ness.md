@@ -95,7 +95,7 @@ struct file_reader:
         #size of T in bytes multiplied by elements
         let fsize = e*sizeof[T]()
         
-        if (self.offset+fsize-1)>self.size:
+        if (self.offset+fsize)>self.size:
             raise Error("file is not that big")
         
         let tmp = Pointer[UInt8]().alloc(fsize)
