@@ -7,8 +7,6 @@
 ### [🔍 Why](/why.md) 
 ### [🔦 Introduction](/introduction.md)
 ### [🫵 corrections and contributions](contribute.md) 
-- *this is a community effort!*
-
 &nbsp; 
 
 # [🔁 Python land and mojo land, PythonObject](tutorials/python-world-mojo-world.md) 
