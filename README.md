@@ -27,6 +27,9 @@ v0.4.0: powerfull magic
 # [🔥 making compile time functions](tutorials/compile-time-functions.md)
 Pointer[Int] of squared numbers
 
+# [🧹 ASAP: will call ```__del__``` when last used](tutorials/memory-asap-and-destructor-behaviours.md)
+when do del get called on instance
+
 # 🤙 [callbacks trough parameters](tutorials/callbacks-trough-parameters.md)
 toy markdown generator as an example
 
