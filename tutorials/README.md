@@ -7,7 +7,7 @@
 
 ### [🔍 Why](/why.md) 
 ### [🔦 Introduction](/introduction.md)
-### [🫵 corrections and contributions](contribute.md)
+### [🫵 corrections and contributions](/contribute.md)
 &nbsp; 
 # [🔁 Python land and mojo land, PythonObject](python-world-mojo-world.md) 
 there is also an example with a lot of comments using numpy and matplotlib. 
