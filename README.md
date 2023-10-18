@@ -2,12 +2,13 @@
 
 # 📖 Learning mojo language
 ###  ⚠️  not affiliated with Modular or Mojo
+### 👷 this is a community effort!
 
 &nbsp; 
 
 ### [🔍 Why](/why.md) 
 ### [🔦 Introduction](/introduction.md)
-### [🫵 corrections and contributions](contribute.md) community effort!
+### [🫵 corrections and contributions](contribute.md) 
 &nbsp; 
 # [🔁 Python land and mojo land, PythonObject](tutorials/python-world-mojo-world.md) 
 there is also an example with a lot of comments using numpy and matplotlib. 
