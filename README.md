@@ -15,6 +15,9 @@ there is also an example with a lot of comments using numpy and matplotlib.
 # [🛣️ 🚌 multi-core (parallelize) with simd](tutorials/multi-core-parallelize-with-simd%20.md) 
 simd and parallelize.
 
+# [🐍 using python in mojo: a to z](tutorials/using-python-in-mojo.md)
+first steps and dancing
+
 # 🫙 [struct as a namespace (@staticmethod)](tutorials/struct-as-namespace.md)
 example: wrap python functions
 
