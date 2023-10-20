@@ -15,7 +15,7 @@ there is also an example with a lot of comments using numpy and matplotlib.
 # [🛣️ 🚌 multi-core (parallelize) with simd](tutorials/multi-core-parallelize-with-simd%20.md) 
 simd and parallelize.
 
-# [🪄 calling mojo functions from python ](tutorials/calling-mojo-functions-in-python)
+# [🪄 calling mojo functions from python ](tutorials/calling-mojo-functions-in-python.md)
 using pointers an ctype
 
 # [🐍 using python in mojo: a to z](tutorials/using-python-in-mojo.md)
