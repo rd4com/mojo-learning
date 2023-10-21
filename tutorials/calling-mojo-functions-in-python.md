@@ -2,8 +2,6 @@
 > with 0.4.0
 #### ⚠️ do no use in production, untested code, there might be bugs
 
-It seems to show about 1.36x speedup over numpy np.sum(),
-
 the mojo function is using vectorize and SIMD, it could be improved with parallelize.
 
     mojo benchmark :         0.018098020926117897
