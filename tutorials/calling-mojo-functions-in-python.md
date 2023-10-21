@@ -87,8 +87,10 @@ def call_function2(address):
 - Call the function
 - Free the pointer
 
-# 🧙 simplify with a wrapper
+# 🫧 simplify with a wrapper
 > ⚠️ not ready for use as it is, not tested and have unfreed pointers
+
+(it is usefull to keep the global scope clean 🧽)
 
 Building a wrapper with all thoses features:
 - [VariadicList](https://docs.modular.com/mojo/stdlib/utils/list.html#variadiclist) for the arguments types
