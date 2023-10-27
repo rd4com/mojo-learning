@@ -20,7 +20,7 @@ from algorithm import vectorize
 #to determine the maximum value of an integer
 from math.limit import max_finite
 
-#needed to perform benchmarks
+#to perform benchmarks (mojo also does provide a benchmark function if needed)
 from time import now
 
 #the signature of the function to optimize
