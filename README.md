@@ -30,7 +30,7 @@ mojo build program.mojo -D...
 # [🕯️ reader.read\[Int32,"swap"\](3) in 45 lines](tutorials/reader-in-few-lines-with-endian-ness.md)
 v0.4.0: powerfull magic 
 
-# [🔮 Autotune: optimisation made easy](tutorials/autotune-optimize-by-search-and-benchmark.md)
+# [🔮 Autotune: optimization made easy](tutorials/autotune-optimize-by-search-and-benchmark.md)
 Easy to use
 
 # [🔥 making compile time functions](tutorials/compile-time-functions.md)
