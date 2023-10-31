@@ -40,7 +40,7 @@ Pointer[Int] of squared numbers
 when do del get called on instance
 
 # [🏗️ moveinit 💿💿 copyinit 🐿️ takeinit](tutorials/moveinit-copyinit-takeinit.md)
-making copies of instances, moves, taking moves
+implement in struct: copy of instance, move, taking move
 
 # 🤙 [callbacks trough parameters](tutorials/callbacks-trough-parameters.md)
 toy markdown generator as an example
