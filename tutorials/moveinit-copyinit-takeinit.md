@@ -1,5 +1,4 @@
-# 🏗️ moveinit and 💿💿 copyinit
-
+# 🏗️ moveinit 💿💿 copyinit 🐿️ takeinit
 > using v0.4.0
 
 Let's have a look at theses features trough an example,
@@ -15,6 +14,11 @@ they looks like this :
     -  original can't be used in the program anymore 
     -  **^ transfer suffix** is used to call moveinit
     -  usefull for making sure an instance don't have copies thus is unique
+  - ```fn __takeinit__(inout self, inout original: Self)```
+    - original can be modified
+    - ```__del()__``` will get called on original on last use 
+    - usefull to affect a conditional in ```__del__()```
+      - example: don't free pointer if self.dontfree == true
 
 ### The illustration:
 ```python
@@ -67,6 +71,8 @@ fn main():
 
 *Note: del 0 comes from still_original and not original*
 
+&nbsp;
+
 ### ```var original = my_type(id=0)```
 An instance of my_type is created,
 
@@ -94,6 +100,8 @@ we moved original to still_original and took original as ```owned```:
 - del 0 is showed only once
 - it is showed whend still_original gets deleted
 
+&nbsp;
+
 ## why moveinit is important and usefull
 We can make sure that an instance have no copies in the program,
 
@@ -118,6 +126,8 @@ fn change_owner(owned some_item:item_type,inout new_owner: owner_type):
     new_owner.owned_item = some_item^
 ```
 
+&nbsp;
+
 ### Owned argument does get deleted if not used:
 ```python
 fn from_owned(owned arg:my_type):
@@ -129,7 +139,70 @@ fn from_owned(owned arg:my_type):
 
 &nbsp;
 
-*With moveinit, it is easier to enforce safety in the program.*
+ # 🐿️ takeinit
+```python
+fn __takeinit__(inout self, inout original: Self)
+```
+  - original can be modified
+  - ```__del()__``` will get called on original on last use 
+  - usefull to affect a conditional in ```__del__()```
+    - example: don't free pointer if self.dontfree == true
+
+### Example
+ ```python
+struct my_type[T:AnyType]:
+    var ptr:Pointer[T]
+    var freed_allowed:Bool
+    
+    fn __init__(inout self,value:T):
+        self.ptr=self.ptr.alloc(1)
+        self.ptr.store(0,value)
+        self.freed_allowed=True
+        print("init")
+
+
+    fn __takeinit__(inout self, inout existing: Self):
+        self.ptr = existing.ptr
+        self.freed_allowed=existing.freed_allowed
+        existing.freed_allowed = False
+        print("takeinit")
+
+    fn __del__(owned self):
+        if self.freed_allowed == True:
+            print("del with free")
+            self.ptr.free()
+        else:
+            print("del without free")
+        
+
+fn main():
+    var original = my_type[Int](1)
+
+    var x = original
+    #delete original at last use, here:
+    _=original^ 
+
+    print("freed allowed: ",x.freed_allowed)
+    #x gets deleted here at its last use
+```
+### Complete output:
+    init
+    takeinit
+    del without free
+    del with free
+    freed allowed:  True
+*note: when original gets deleted, it print accordingly: del without free*
+
+&nbsp;
+
+It is interesting because ```__del()__``` is called on original.
+
+With ```__moveinit()__``` it is not called on the original.
+
+With ```__copyinit()__``` original can't be modified because it is borrowed.
+
+But with ```__takeinit()__```,original can be modified:
+  - ```existing.freed_allowed = False```
 
 
 &nbsp;

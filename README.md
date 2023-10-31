@@ -39,7 +39,7 @@ Pointer[Int] of squared numbers
 # [🧹 ASAP: will call ```__del__``` when last used](tutorials/memory-asap-and-destructor-behaviours.md)
 when do del get called on instance
 
-# [🏗️ moveinit and 💿💿 copyinit](tutorials/moveinit-copyinit.md)
+# [🏗️ moveinit 💿💿 copyinit 🐿️ takeinit](tutorials/moveinit-copyinit-takeinit.md)
 making copies of instances and also move with ^ transfer suffix
 
 # 🤙 [callbacks trough parameters](tutorials/callbacks-trough-parameters.md)
