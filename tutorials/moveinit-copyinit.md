@@ -100,7 +100,7 @@ We can make sure that an instance have no copies in the program,
 when we to pass it to a function, the function could return it:
 ```python
 fn from_owned(owned source:my_type)->my_type:
-    #do something or not
+    #do things
     return source
 ```
 
