@@ -41,6 +41,9 @@ Pointer[Int] of squared numbers
 # [🧹 ASAP: will call ```__del__``` when last used](memory-asap-and-destructor-behaviours.md)
 when do del get called on instance
 
+# [🏗️ moveinit and 💿💿 copyinit](moveinit-copyinit.md)
+making copies of instances and also move with ^ transfer suffix
+
 # 🤙 [callbacks trough parameters](callbacks-trough-parameters.md)
 toy markdown generator as an example
 
