@@ -123,7 +123,6 @@ def call_sum(sum):
 #### main.mojo
 ```python
 from python import Python
-from utils.list import VariadicList
 
 fn get_wrapper[fsig:AnyType](ret_type:StringLiteral,f:fsig,*args_types:StringLiteral) raises -> PythonObject:
     let ctypes = Python.import_module("ctypes")
@@ -132,10 +131,9 @@ fn get_wrapper[fsig:AnyType](ret_type:StringLiteral,f:fsig,*args_types:StringLit
     let tmp = (ctypes.CFUNCTYPE(ctypes.c_void_p)).from_address(tmp_.__as_index())
 
     let py_obj_argtypes = PythonObject([])
-    let args_variadic = VariadicList(args_types)
 
-    for i in range(args_variadic.__len__()):
-        py_obj_argtypes.append(ctypes.__getattr__(args_variadic[i]))
+    for i in range(args_types.__len__()):
+        py_obj_argtypes.append(ctypes.__getattr__(args_types[i]))
     tmp.argtypes = py_obj_argtypes
     tmp.restype = ctypes.__getattr__(ret_type)
     #note: tmp_ is never freed
