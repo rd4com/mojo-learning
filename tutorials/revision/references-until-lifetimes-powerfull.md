@@ -1,3 +1,10 @@
+## tutorial in the process of revision and correction
+[contribute corrections](/contribute.md)
+
+
+&nbsp;
+
+&nbsp;
 # 🤹 references until lifetimes: powerfull
 
 
