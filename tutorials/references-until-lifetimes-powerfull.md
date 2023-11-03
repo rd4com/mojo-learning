@@ -15,7 +15,7 @@
 For persons that are used to C/(other awesome languages)/lowlevel pointers, there is something called magic operators:
 -  provide the ability to store memory only types in pointers
 -  [create self referencing types](#example-self-referencing-type)
--  [create vectors of memory only types](#example-create-vectors-of-struct)
+-  create vectors of memory only types
 
 &nbsp;
 
@@ -171,36 +171,4 @@ fn main():
     s.free()
 ```
 
-&nbsp;
 
-#### example: create vectors of struct
-> ⚠️ this code have not been tested, require more work
-```python
-@value
-struct my_type:
-    var x: Int
-
-struct storage_type:
-    var storage:DynamicVector[Pointer[my_type]]
-   
-    fn __init__(inout self):
-        self.storage = DynamicVector[Pointer[my_type]]()
-   
-    fn push(inout self,owned str: my_type):
-        var tmp = __get_lvalue_as_address(str)
-        self.storage.push_back(tmp^)
-   
-    fn pop(inout self) raises->my_type:
-        if len(self.storage)==0:
-            raise Error("trying to pop an empty list")
-        var res = __get_address_as_owned_value(self.storage.pop_back().address)
-        return res^
-
-fn main() raises:
-    var storage = storage_type()
-    storage.push(my_type(1))
-    storage.push(my_type(2))
-    print(storage.pop().x)
-    print(storage.pop().x)
-    print(storage.pop().x)
-```
