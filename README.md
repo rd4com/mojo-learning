@@ -21,8 +21,7 @@ using pointers an ctype
 # [🐍 using python in mojo: a to z](tutorials/using-python-in-mojo.md)
 first steps and dancing
 
-# [🤹 references until lifetimes: powerfull](tutorials/references-until-lifetimes-powerfull.md)
-magic operators for low-level
+
 
 # 🫙 [struct as a namespace (@staticmethod)](tutorials/struct-as-namespace.md)
 example: wrap python functions
