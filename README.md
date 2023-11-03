@@ -21,6 +21,9 @@ using pointers an ctype
 # [🐍 using python in mojo: a to z](tutorials/using-python-in-mojo.md)
 first steps and dancing
 
+# [🤹 references until lifetimes: powerfull](tutorials/references-until-lifetimes-powerfull.md)
+magic operators for low-level
+
 # 🫙 [struct as a namespace (@staticmethod)](tutorials/struct-as-namespace.md)
 example: wrap python functions
 
@@ -29,6 +32,8 @@ mojo build program.mojo -D...
 
 # [🕯️ reader.read\[Int32,"swap"\](3) in 45 lines](tutorials/reader-in-few-lines-with-endian-ness.md)
 v0.4.0: powerfull magic 
+
+
 
 # [🔮 Autotune: optimization made easy](tutorials/autotune-optimize-by-search-and-benchmark.md)
 Easy to use
