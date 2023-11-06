@@ -74,7 +74,7 @@ More about it can be read on the website of mojo aswell.
      
 
 &nbsp;
-#### Example: DynamicVector for a custom type
+#### Example: list of struct
 > ⚠️ this code have not been tested, require more work
 ```python
 @value
