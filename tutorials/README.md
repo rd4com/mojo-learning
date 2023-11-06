@@ -23,7 +23,7 @@ using pointers an ctype
 # [🐍 using python in mojo: a to z](using-python-in-mojo.md)
 first steps and dancing
 
-# [🤹 making lists of structs with magic operators (pre-lifetimes)](lists-of-structs-magic-operators-pre-lifetimes)
+# [🤹 making lists of structs with magic operators](lists-of-structs-magic-operators-pre-lifetimes.md)
 unsafe references abilities until lifetimes
 
 # 🫙 [struct as a namespace (@staticmethod)](struct-as-namespace.md)
