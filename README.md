@@ -21,7 +21,8 @@ using pointers an ctype
 # [🐍 using python in mojo: a to z](tutorials/using-python-in-mojo.md)
 first steps and dancing
 
-
+# [🤹 making lists of structs with magic operators (pre-lifetimes)](tutorial/lists-of-structs-magic-operators-pre-lifetimes)
+unsafe references abilities until lifetimes
 
 # 🫙 [struct as a namespace (@staticmethod)](tutorials/struct-as-namespace.md)
 example: wrap python functions
