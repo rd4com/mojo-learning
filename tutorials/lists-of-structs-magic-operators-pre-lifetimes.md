@@ -108,6 +108,10 @@ struct storage:
         __get_address_as_lvalue(self.data.offset(i).address) = value
         
     fn __del__(owned self):
+        # not implemented in the example: placement delete on elements
+        # please contribute solutions, working on it
+        # see __get_address_as_owned_value()
+        # just free() is not enough to have no bugs.
         self.data.free()
 
 def main():
