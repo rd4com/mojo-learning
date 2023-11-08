@@ -33,8 +33,6 @@ mojo build program.mojo -D...
 # [🕯️ reader.read\[Int32,"swap"\](3) in 45 lines](tutorials/reader-in-few-lines-with-endian-ness.md)
 v0.4.0: powerfull magic 
 
-
-
 # [🔮 Autotune: optimization made easy](tutorials/autotune-optimize-by-search-and-benchmark.md)
 Easy to use
 
@@ -55,6 +53,9 @@ one cycle by vectorizing simd instructions, plot with python
 
 # [Try & Except: ✋->⚠️->⛑️->🩹->👍 ](tutorials/try-and-except-errors-handling.md)
 raise custom errors and recover (with example)
+
+# [📫 find out changes and improvements when there is a new update](tutorials/what-have-change-when-there-is-a-new-update.md)
+changelogs for new comers
 
 &nbsp; 
 ## Need revision: 

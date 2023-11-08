@@ -56,6 +56,9 @@ one cycle by vectorizing simd instructions, plot with python
 # [Try & Except: ✋->⚠️->⛑️->🩹->👍 ](try-and-except-errors-handling.md)
 raise custom errors and recover (with example)
 
+# [📫 find out changes and improvements when there is a new update](what-have-change-when-there-is-a-new-update.md)
+changelogs for new comers
+
 &nbsp; 
 ## Need revision: 
 # [simd cosine with np.linspace](numpy-simd.md)
