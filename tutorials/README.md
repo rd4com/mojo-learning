@@ -53,6 +53,9 @@ toy markdown generator as an example
 # [🌊 256Hz: simd cosine and plot it](vectorise-simd-cosine.md)
 one cycle by vectorizing simd instructions, plot with python
 
+# [⌨️ introduction to types](introduction-to-types.md)
+syntax and concepts: not complicated
+
 # [Try & Except: ✋->⚠️->⛑️->🩹->👍 ](try-and-except-errors-handling.md)
 raise custom errors and recover (with example)
 
