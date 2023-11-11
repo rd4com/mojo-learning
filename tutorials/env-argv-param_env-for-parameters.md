@@ -58,10 +58,15 @@ from os import getenv
 
 fn main():
     var k = getenv(name= "ENV_VARIABLE_NAME", default= "none")
+    if k == "none":
+        print("it is default value")
+        return
 ```
 
 
 ## args
+> ⚠️ the example do not include error checking, so don't use it as it is
+
 Build the app: ```mojo build app.mojo```
 
     ./app "The number is" 3
