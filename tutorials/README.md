@@ -53,7 +53,7 @@ toy markdown generator as an example
 # [🌊 256Hz: simd cosine and plot it](vectorise-simd-cosine.md)
 one cycle by vectorizing simd instructions, plot with python
 
-# [🦜 env, argv and param_env (for alias)](env-argv-param_env-for-parameters)
+# [🦜 env, argv and param_env (for alias)](env-argv-param_env-for-parameters.md)
 arguments: command-line, env, alias
 
 # [⌨️ introduction to types](introduction-to-types.md)
