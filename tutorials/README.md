@@ -23,6 +23,9 @@ using pointers an ctype
 # [🐍 using python in mojo: a to z](using-python-in-mojo.md)
 first steps and dancing
 
+# [🧬 Parameters, Alias, Struct parameter deduction, more](parameters-alias-struct-parameter-deduction.md)
+Parameterize! (compile time meta-programming) 
+
 # [🤹 making lists of structs with magic operators](lists-of-structs-magic-operators-pre-lifetimes.md)
 unsafe references abilities until lifetimes
 
