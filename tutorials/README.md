@@ -26,6 +26,12 @@ first steps and dancing
 # [🧬 Parameters, Alias, Struct parameter deduction, more](parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
 
+# [🔥 With blocks: with my_struct(1) as v (parametric/minimal/raise)](with-blocks-for-struct-parametric-minimal-raise.md)
+with blocks from struct
+
+# [🏃 (SPEED) Parametric struct trough CPU registers instead of RAM.](parametric-struct-trough-cpu-registers.md)
+the @register_passable decorator
+
 # [🤹 making lists of structs with magic operators](lists-of-structs-magic-operators-pre-lifetimes.md)
 unsafe references abilities until lifetimes
 
