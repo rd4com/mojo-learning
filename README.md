@@ -27,7 +27,7 @@ Parameterize! (compile time meta-programming)
 # [🔥 With blocks: with my_struct(1) as v (parametric/minimal/raise)](tutorials/with-blocks-for-struct-parametric-minimal-raise.md)
 with blocks from struct
 
-# [🏃 (SPEED) Parametric struct trough CPU registers instead of RAM.](tutorials/parametric-struct-trough-cpu-registers.md)
+# [🏃 (SPEED) Parametric struct trough CPU registers](tutorials/parametric-struct-trough-cpu-registers.md)
 the @register_passable decorator
 
 # [🤹 making lists of structs with magic operators](tutorials/lists-of-structs-magic-operators-pre-lifetimes.md)

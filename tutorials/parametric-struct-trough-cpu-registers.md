@@ -1,4 +1,4 @@
-# 🏃 (SPEED) Parametric struct trough CPU registers instead of RAM.
+# 🏃 (SPEED) Parametric struct trough CPU registers.
 
 > with v0.5.0
 
