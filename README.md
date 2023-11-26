@@ -24,8 +24,8 @@ first steps and dancing
 # [🧬 Parameters, Alias, Struct parameter deduction, more](tutorials/parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
 
-# [🔥 With blocks: with my_struct(1) as v (parametric/minimal/raise)](tutorials/with-blocks-for-struct-parametric-minimal-raise.md)
-with blocks from struct
+# [🔥 With blocks: with my_struct(1) as v](tutorials/with-blocks-for-struct-parametric-minimal-raise.md)
+with blocks from struct (parametric/minimal/raise)
 
 # [🏃 (SPEED) Parametric struct trough CPU registers](tutorials/parametric-struct-trough-cpu-registers.md)
 the @register_passable decorator
