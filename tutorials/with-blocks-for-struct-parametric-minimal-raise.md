@@ -57,13 +57,13 @@ There is also a small tutorial on ASAP inside this repository.
 That example cover some features introduced in
 [Changelog: week-of-2023-04-24](https://docs.modular.com/mojo/changelog.html#week-of-2023-04-24).
 
-#### enter the with block, and provide value of type T
+##### enter the with block, and provide value of type T
 ```fn __enter__(self) -> T:```
 
-#### exit the with block without error
+##### exit the with block without error
 ```fn __exit__(self):```
 
-#### error got raised inside the with block:
+##### error got raised inside the with block:
 ```fn __exit__(self, err: Error) -> Bool:```
 
 
