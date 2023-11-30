@@ -10,7 +10,8 @@
 &nbsp; 
 
 # [🔁 Python land and mojo land, PythonObject](tutorials/python-world-mojo-world.md) 
-there is also an example with a lot of comments using numpy and matplotlib. 
+note: need revision for better accessibility
+
 
 # [🛣️ 🚌 multi-core (parallelize) with simd](tutorials/multi-core-parallelize-with-simd%20.md) 
 simd and parallelize.
