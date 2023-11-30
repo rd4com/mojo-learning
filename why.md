@@ -27,14 +27,14 @@ Why learn it now?
 *Note: Python have many packages and an active community of general purpose programmers and experts.*
 
 ## 🌅 A bright future ahead full of opportunities
-It is easy to imagine that one person knowing mojo/modular could one day be able to do: 
+It is easy to imagine that one person knowing mojo could one day be able to do: 
 - 🌐 Web applications:
     - front end
       - potential for wasm: mojo apps have a small footprint
     - back end 
       - part of it being an ai running on a graphic card?
-      - filtering audio signals as a web service using scipy?
-      - provide to the front-end matplotlib images?
+      - filtering audio signals as a web service?
+      - provide to the front-end chart images?
 - 💻 Desktop softwares
 - 📱 Mobile apps
 - ⏧ Robotics and IOT using micro-controllers

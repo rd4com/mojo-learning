@@ -78,8 +78,4 @@ raise custom errors and recover (with example)
 # [📫 find out changes and improvements when there is a new update](what-have-change-when-there-is-a-new-update.md)
 changelogs for new comers
 
-&nbsp; 
-## Need revision: 
-# [simd cosine with np.linspace](numpy-simd.md)
-import numpy using ```try:``` and ```except:``` inside a struct wrapper, meta-programming with ```__getitem__``` to get linspace, conversion to ```SIMD[DType.float64,size]```, apply ```math.cos()```
 
