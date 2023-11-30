@@ -13,7 +13,7 @@
 
 
 There are three worlds at disposal:
-- typed (Int64..) (*builtin*)
+- statically typed (Int64..) (*builtin* and custom structs)
 - mojo's object *([Builtin.object](https://docs.modular.com/mojo/stdlib/builtin/object.html),used in the example:[Matrix multiplication](https://docs.modular.com/mojo/notebooks/Matmul.html#importing-the-python-implementation-to-mojo))*
 - python object *(require: from Python import [PythonObject](https://docs.modular.com/mojo/stdlib/python/object.html#pythonobject))*
             
