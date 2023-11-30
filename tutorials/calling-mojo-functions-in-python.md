@@ -13,6 +13,7 @@ Building a wrapper with all thoses features:
 - [import_module](https://docs.modular.com/mojo/stdlib/python/python.html#import_module)
 - [PythonObject.\_\_getattr\_\_()](https://docs.modular.com/mojo/stdlib/python/object.html#getattr__)
 - [Parametrized function](https://docs.modular.com/mojo/programming-manual.html#defining-parameterized-types-and-functions)
+- struct parameter deduction
 
 
 The function is passed to python using a pointer, as an integer.
@@ -48,7 +49,7 @@ def main():
         print(p)
         return p+1
     
-    w = get_wrapper[fn(Int)->Int]("c_int",mojo_print,"c_int")
+    w = get_wrapper("c_int",mojo_print,"c_int")
     
     py_mymodule.call_mojo_print(w)
 
@@ -60,7 +61,7 @@ def main():
             total+=arg.load(i)
         return total
     
-    w2 = get_wrapper[fn(Pointer[Float64],Int)->Float64]("c_double",m_sum,"c_void_p","c_int")
+    w2 = get_wrapper("c_double",m_sum,"c_void_p","c_int")
     py_mymodule.call_sum(w2)
 ```
 
