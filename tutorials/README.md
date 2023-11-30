@@ -32,6 +32,10 @@ with blocks from struct (parametric/minimal/raise)
 # [🏃 (SPEED) Parametric struct through CPU registers](parametric-struct-trough-cpu-registers.md)
 the @register_passable decorator
 
+# [🏞️ getattr: dynamic and static struct members](getattr-dynamic-and-static-struct-members.md)
+
+the_instance.method_not_defined() handled
+
 # [🤹 making lists of structs with magic operators](lists-of-structs-magic-operators-pre-lifetimes.md)
 unsafe references abilities until lifetimes
 
