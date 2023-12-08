@@ -22,6 +22,9 @@ using pointers an ctype
 # [🐍 using python in mojo: a to z](tutorials/using-python-in-mojo.md)
 first steps and dancing
 
+# [📋 Traits: accept any types that comply to requirements](tutorials/traits.md)
+accept types based on some requirements
+
 # [🧬 Parameters, Alias, Struct parameter deduction, more](tutorials/parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
 
