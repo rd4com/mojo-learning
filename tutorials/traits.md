@@ -749,7 +749,7 @@ This tutorial is a community effort ❤️ , it can contains error and will be u
 
 Make sure to navigate the official site of mojo, wich contains the best ressources for learning!
 
-Mojo also have it's documentation available on it's github [repository]((https://github.com/modularml/mojo/tree/main/docs)) !
+Mojo also have it's documentation available on it's github [repository](https://github.com/modularml/mojo/tree/main/docs) !
 
 
 
