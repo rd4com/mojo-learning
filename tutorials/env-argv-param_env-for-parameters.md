@@ -19,7 +19,6 @@ from sys.param_env import is_defined,env_get_int,env_get_string
 fn get_width() -> Int:
     @parameter
     if is_defined["simd_width"]():
-        @parameter
         if env_get_int["simd_width"]() > simdwidthof[DType.uint8]():
             # simd_width too big, default to max
             return simdwidthof[DType.uint8]()
