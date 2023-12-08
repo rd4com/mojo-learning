@@ -5,7 +5,7 @@
 
 > Tutorial updated to reflect [Changelog: v0.6.0 (2023-12-04)](https://docs.modular.com/mojo/changelog.html#v0.6.0-2023-12-04)
 
->Traits first introduced in [Changelog: v0.6.0 (2023-12-04)](https://docs.modular.com/mojo/changelog.html#v0.6.0-2023-12-04)
+>Traits introduced in [Changelog: v0.6.0 (2023-12-04)](https://docs.modular.com/mojo/changelog.html#v0.6.0-2023-12-04)
 
 &nbsp;
 
