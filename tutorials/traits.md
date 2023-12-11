@@ -18,7 +18,7 @@ What if multiples types implement the same method signature but differently ?
 
 Can we sort of group them?
 
-Yes, it is partially why traits are usefull.
+Yes, it is partially why traits are useful.
 
 
 A trait is like a checklist, it allows mojo to verify if a type comply with a list of things.
@@ -27,7 +27,7 @@ For now, only methods can be "added" to that check list.
 
 That checklist can then be used to accept different types as argument for example.
 
-*(It is not exacly a checklist, but it helps to think about it that way, in order to start understanding)*
+*(It is not exactly a checklist, but it helps to think about it that way, in order to start understanding)*
 
 
 
@@ -57,7 +57,7 @@ The requirement is simple: the  value passed as an argument has to be an ```Int6
 
 What if we want to be able to pass a value of either ```Int64``` or ```Int32``` type ?
 
-We can specify thoses requirements in a new trait!
+We can specify those requirements in a new trait!
 
 But let's choose an existing trait for now! (```Intable```)
 
@@ -118,7 +118,7 @@ fn main():
 ```
 It is necessary to have two sets of the same requirements,
 
-because the arguments could be of  differents ```Intable``` compliant types.
+because the arguments could be of  different ```Intable``` compliant types.
 
 One could be ```Int64``` and the other ```Int32```.
 
@@ -377,7 +377,7 @@ In the future, we might be able to provides a default implementation there.
 
 ### 1️⃣2️⃣✅ The power of traits
 
-In the begining, the only requirement available was type equality. (```Ìnt64```)
+In the beginning, the only requirement available was type equality. (```Ìnt64```)
 
 It was only possible pass a value of that type to that function argument:
 
@@ -507,7 +507,7 @@ It is fantastic,
 
 the ```@value``` struct decorator can synthesize the required methods of that specific trait.
 
-That decorator synthesize exacly 3 functions and 2 of them are thoses.
+That decorator synthesize exactly 3 functions and 2 of them are those.
 
 - ```__copyinit__()```
 - ```__moveinit__()```
@@ -663,7 +663,7 @@ fn main():
 
 *In the future, we might be able to provide fields and default methods implementations to traits!*
 
-*But don't worry, it is already very powerfull and liberative!*
+*But don't worry, it is already very powerful and liberative!*
 
 
 
@@ -709,7 +709,7 @@ There are more ways to select a default implementation:
 - [param_env](https://docs.modular.com/mojo/stdlib/sys/param_env.html)
 - [@parameter if](https://docs.modular.com/mojo/manual/decorators/parameter.html#parametric-if-statement)
 
-```@staticmethod``` is usefull to make namespace types that dont need an instance for example.
+```@staticmethod``` is useful to make namespace types that dont need an instance for example.
 
 
 
@@ -747,7 +747,7 @@ This tutorial is a community effort ❤️ , it can contains error and will be u
 
 &nbsp;
 
-Make sure to navigate the official site of mojo, wich contains the best ressources for learning!
+Make sure to navigate the official site of mojo, which contains the best resources for learning!
 
 Mojo also have it's documentation available on it's github [repository](https://github.com/modularml/mojo/tree/main/docs) !
 

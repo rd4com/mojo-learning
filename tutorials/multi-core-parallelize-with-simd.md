@@ -34,7 +34,7 @@ fn main():
     
     # simd instructions:
 
-    # a. fill them whith numbers from 0 to 7
+    # a. fill them with numbers from 0 to 7
     numbers = math.iota[DType.uint8,8](0)
     
     # b. x*x for each numbers
@@ -47,7 +47,7 @@ fn main():
 
 # 🚍 🚍 🛣️ simd in parallel 
 
-it is like 4 autobus advancing on 4 seperate highway lanes toward a destination. 
+it is like 4 autobus advancing on 4 separate highway lanes toward a destination.
 
 they reach destination more or less at the same time and in the same amount of time it would have taken with only one autobus in a single highway lane. (single core, non multi-core)
 

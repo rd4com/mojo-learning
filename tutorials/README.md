@@ -33,7 +33,7 @@ Parameterize! (compile time meta-programming)
 # [🔥 With blocks: with my_struct(1) as v ](with-blocks-for-struct-parametric-minimal-raise.md)
 with blocks from struct (parametric/minimal/raise)
 
-# [🏃 (SPEED) Parametric struct through CPU registers](parametric-struct-trough-cpu-registers.md)
+# [🏃 (SPEED) Parametric struct through CPU registers](parametric-struct-through-cpu-registers.md)
 the @register_passable decorator
 
 # [🏞️ getattr: dynamic and static struct members](getattr-dynamic-and-static-struct-members.md)
@@ -50,7 +50,7 @@ example: wrap python functions
 mojo build program.mojo -D...
 
 # [🕯️ reader.read\[Int32,"swap"\](3) in 45 lines](reader-in-few-lines-with-endian-ness.md)
-v0.4.0: powerfull magic 
+v0.4.0: powerful magic
 
 # [🔮 Autotune: optimization made easy](autotune-optimize-by-search-and-benchmark.md)
 Easy to use
@@ -64,7 +64,7 @@ when do del get called on instance
 # [🏗️ moveinit 💿💿 copyinit 🐿️ takeinit](moveinit-copyinit-takeinit.md)
 implement in struct: copy of instance, move, taking move
 
-# 🤙 [callbacks trough parameters](callbacks-trough-parameters.md)
+# 🤙 [callbacks through parameters](callbacks-through-parameters.md)
 toy markdown generator as an example
 
 # [🌊 256Hz: simd cosine and plot it](vectorise-simd-cosine.md)

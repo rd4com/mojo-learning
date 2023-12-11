@@ -30,7 +30,7 @@ struct naive_register_tuple[T_FIRST:AnyType,T_SECOND:AnyType]:
     var first:T_FIRST
     var second:T_SECOND
     
-    #need to return Self type, wich is naive_register_tuple
+    #need to return Self type, which is naive_register_tuple
     fn __init__(arg_one:T_FIRST,arg_two:T_SECOND) -> Self:
 
         var tmp = Self{
@@ -49,7 +49,7 @@ struct naive_register_tuple[T_FIRST:AnyType,T_SECOND:AnyType]:
 
 fn main():
 
-    #explicitely specify the types:
+    #explicitly specify the types:
     var tmp = naive_register_tuple[Bool,Bool](True,True)
     
     #with struct parameter deduction:
@@ -90,7 +90,7 @@ Examples:
 
 ### register_passable
 
-> Thoses values will be passed trough CPU registers
+> Those values will be passed trough CPU registers
 
 The ```__init__()``` function looks different than usual, it returns ```Self```.
 
@@ -102,11 +102,11 @@ register_passable is slightly different in that aspect.
 ### trivial
 It means that we can get a copy of a value and that we can move it.
 
-There is no need to implement thoses methods. (```copyinit```, ```moveinit```, ```takeinit```, ```del```)
+There is no need to implement those methods. (```copyinit```, ```moveinit```, ```takeinit```, ```del```)
 
 Think about it, theses are just "sequences of bytes" that can be copied as they are from one register to another.
 
-A way to think about thoses is in term of "bags of bits" (see mojo documentation).
+A way to think about those is in term of "bags of bits" (see mojo documentation).
 
 
 

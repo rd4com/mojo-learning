@@ -3,7 +3,7 @@
 
 ##### *this page is a community effort and may contains errors. please contribute any corrections if needed.*
 
-It's wonderfull because mojo free memory as soon as possible.
+It's wonderful because mojo free memory as soon as possible.
 
 Lifetimes is on the roadmap: [Ownership and Lifetimes](https://docs.modular.com/mojo/roadmap.html#ownership-and-lifetimes).
 

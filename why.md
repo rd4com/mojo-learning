@@ -7,8 +7,8 @@
 
 ## Why learning Mojo? 
 **Unifying** the **high level** world and the **low level** world into a **single language** provides many great things:
-- **choose how time is used on any part of the app** by switching from high level to low level (usefull when prototyping or exploring ideas).
-- **explore new lands/platforms** that were not steppable before (freedom, versatiliy and opportunities)
+- **choose how time is used on any part of the app** by switching from high level to low level (useful when prototyping or exploring ideas).
+- **explore new lands/platforms** that were not steppable before (freedom, versatility and opportunities)
 - **a progressive path to learn and grow** (by choosing the current level of abstraction).
 
 
@@ -35,7 +35,7 @@ It is easy to imagine that one person knowing mojo could one day be able to do:
       - part of it being an ai running on a graphic card?
       - filtering audio signals as a web service?
       - provide to the front-end chart images?
-- 💻 Desktop softwares
+- 💻 Desktop software
 - 📱 Mobile apps
 - ⏧ Robotics and IOT using micro-controllers
 - 🤖 Performant A.I
@@ -45,7 +45,7 @@ It is easy to imagine that one person knowing mojo could one day be able to do:
 
 
 ### Let's take the time to say thank you to the modular/mojo team.
-### This repository is just a community effort, the ressources 
+### This repository is just a community effort, the resources
 ### available on the official website of modular/mojo
 ### are the best if you want to learn!
 ### Here are some links to theses:

@@ -35,7 +35,7 @@ fn main():
     with my_struct(1.5) as value:
         print(value)
 
-    #explicitely specify type:
+    #explicitly specify type:
     with my_struct[Bool](True) as value:
         print(value)
 ```
@@ -107,7 +107,7 @@ fn main() raises:
         #The error got re-thrown here
         print("❌ Error 'received' by main : ",err)
 
-        #Lets consider it handled.
+        #Let's consider it handled.
         print("✅ Handled in main")
 
         #Program will continue, below in the main function
@@ -115,7 +115,7 @@ fn main() raises:
     print("Main: all good")
 ```
 
-Depending on wich error is thrown (see the commented one),
+Depending on which error is thrown (see the commented one),
 
 the program produce one of theses two outputs:
 #### A:
