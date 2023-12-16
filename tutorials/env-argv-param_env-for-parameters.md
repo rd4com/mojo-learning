@@ -8,7 +8,7 @@
 ```param_env```: for alias, available at compile time
 
 ## param_env
-They are retreived when mojo build the program.
+They are retrieved when mojo build the program.
 
 So they can be used to do compile-time logic.
 

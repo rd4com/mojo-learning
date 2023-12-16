@@ -52,7 +52,7 @@ More about it can be read on the website of mojo aswell.
   - documentation in [Roadmap: shap edges](https://docs.modular.com/mojo/roadmap.html#sharp-edges)
   - ```__get_address_as_lvalue(address) = other_instance ``` 
     - will call ``` __del__()``` on existing value at the address (cannot contains nothing)
-  - get an copy instance trough ```__copyinit__```:
+  - get an copy instance through ```__copyinit__```:
     - ```var x = __get_address_as_lvalue(address)```
 
 

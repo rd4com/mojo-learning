@@ -1,9 +1,9 @@
 # [Try & Except: ✋->⚠️->⛑️->🩹->👍 ]()
 > with v0.4.0
 
-There are explainations further down the page,
+There are explanations further down the page,
 
-This example accompany thoses:
+This example accompany those:
 
 ```python
 from random import random_float64,seed
@@ -37,7 +37,7 @@ fn main() raises:
         count_to_5()
     except e:
         print("error inside main(): ",e)
-        #main: errror e
+        #main: error e
         if e.__repr__() == "⚠️ we stopped at three":
             print("main: three ⛑️")
             print("main: four ⛑️")
@@ -88,4 +88,4 @@ If fixed, the the execution continue on the first line after the except block.
 
 If it is not possible to fix it, it is possible to Raise an error: either the same or another.
 
-The error will be transfered to the next Except: block. (see example)
+The error will be transferred to the next Except: block. (see example)

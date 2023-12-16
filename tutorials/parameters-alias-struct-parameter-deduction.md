@@ -16,7 +16,7 @@ Let's learn how to parametrize!
 
 That example also covers "Struct parameters deduction". 
 
-It is very usefull, try to practice playing with it in order to remember and understand it.
+It is very useful, try to practice playing with it in order to remember and understand it.
 
 Notice how the deduction "works its way" up the struct and fill the blanks.
 
@@ -253,7 +253,7 @@ fn main():
 
 ---
 #### Parameter default value and keyword
-Parameters can have default values and be refered by keyword.
+Parameters can have default values and be referred by keyword.
 
 The ones that have default values need to be defined after the ones that don't (order).
 - ```example[no_default:Int, got_default:Int=1]```

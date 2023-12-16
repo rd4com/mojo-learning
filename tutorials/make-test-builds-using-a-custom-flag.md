@@ -1,5 +1,5 @@
 # 🏳️ make test builds using a custom flag
-In mojo, it is possible to do it trough programming!
+In mojo, it is possible to do it through programming!
 
 For serious testing, the assert functions provided mojo standard library should be used instead.
 

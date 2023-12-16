@@ -51,7 +51,7 @@ fn main() raises:
     mylib.print_from_mylib(time.monotonic_ns())
 ```
 ### object with small footprint
-Object comparable to thoses of Python, Javascript, Ruby, Lua, out of the box.
+Object comparable to those of Python, Javascript, Ruby, Lua, out of the box.
 ```python
 #Around 38kb
 fn take_object(o: object):
@@ -87,7 +87,7 @@ fn main():
 
 It can of great help to peoples that need to react to changes in their industry quickly.
 
-It is usefull to be able to explore new ideas without using a lot of time.
+It is useful to be able to explore new ideas without using a lot of time.
 
 Before:
 ```python
