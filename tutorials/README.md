@@ -23,6 +23,10 @@ using pointers an ctype
 # [🐍 using python in mojo: a to z](using-python-in-mojo.md)
 first steps and dancing
 
+# [🏚️🏗️🏠 Moving owned values](moving-owned-values.md) 
+
+```__moveinit__``` ```__del__``` and many more !
+
 # [📋 Traits: accept any types that comply to requirements](traits.md)
 accept types based on some requirements
 
