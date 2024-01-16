@@ -400,4 +400,4 @@ fn main():
 
 This small tutorial can contains errors, feel free contribute corrections.
 
-Make sure to go to the official documentation website, this is where true magic is learned!
+Make sure to go to the official documentation website of mojo, this is where true magic is learned!
