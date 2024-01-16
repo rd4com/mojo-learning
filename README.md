@@ -32,6 +32,9 @@ accept types based on some requirements
 # [🧬 Parameters, Alias, Struct parameter deduction, more](tutorials/parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
 
+# [🪄🔮 Autotuned parametrized tests](tutorials/autotuned-parametrized-tests.md)
+Testing for multiple ```SIMD``` sizes
+
 # [🔥 With blocks: with my_struct(1) as v](tutorials/with-blocks-for-struct-parametric-minimal-raise.md)
 with blocks from struct (parametric/minimal/raise)
 
