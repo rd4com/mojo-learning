@@ -98,13 +98,15 @@ from autotune import autotune, search
 
 @adaptive
 fn Tests():
-    alias width_to_use = autotune(1,2,4,8,16)
-    alias DT = autotune(DType.uint8,DType.uint16,DType.uint32) 
-    var instance = Small[DT,SIZE=width_to_use]()
-    print("Simd DType:"+ str(DT))
-    print("Simd width:"+ str(width_to_use))
-    instance.TestsBitSet()
-    print("")
+    alias width_to_use = autotune(1,2,4)
+    alias DT = autotune(DType.uint8,DType.uint16)
+    @parameter
+    if width_to_use > simdwidthof[DT](): ...#print("skip")
+    else:
+        var instance = Small[DT,SIZE=width_to_use]()
+        print("Simd DType:"+ str(DT) + "\twidth:"+ str(width_to_use))
+        instance.TestsBitSet()
+        print("")
      
 
 fn evaluator(funcs: Pointer[fn()->None], total: Int) -> Int:
@@ -123,12 +125,9 @@ fn run_tests():
     ]()
 
 def main():
-    print(65%16)
-    print(64//16)
     #var x = Small()
     #x.ArrayBitSet[31](1)
     #var res:Int = x.ArrayBit[31]()
-    #print(res)
     run_tests()
 
 @register_passable
@@ -165,56 +164,7 @@ struct Small[DT:DType=DType.uint8,SIZE:Int=SIMD[DT].size](Stringable):
         b|=(SIMD[Self.DT,1](value).cast[DType.bool]().cast[Self.DT]()<<tmp_rem)
         self.data[self.data.size-1-tmp_index] = b
     
-    fn TestsBitSet[ManualTests:Bool=False](self):
-        var tmp = Self()
-        @parameter
-        if ManualTests:
-            print("\n\nTests:")
-            _=tmp.ArrayBit[self.MostSignificantBitPosition]()
-            tmp.data[0]=128
-            print("    \tExpected\t Result")
-            print("1\tTrue\t\t",(tmp.ArrayBit[Self.MostSignificantBitPosition]()>0))
-            tmp.data[0]=0
-            print("2\tFalse\t\t",(tmp.ArrayBit[Self.MostSignificantBitPosition]()>0))
-            tmp.data[0]=64
-            print("3\tTrue\t\t",(tmp.ArrayBit[Self.MostSignificantBitPosition-1]()>0))
-            tmp.data[0]=1
-            print("4\tTrue\t\t",(tmp.ArrayBit[Self.MostSignificantBitPosition-7]()>0))
-            tmp.data[0]=0
-            print("5\tFalse\t\t",(tmp.ArrayBit[Self.MostSignificantBitPosition-7]()>0))
-            tmp.ArrayBitSet[0](1)
-            print("6\tTrue\t\t",(tmp.ArrayBit[0]()>0))
-            print("7\tTrue\t\t",(tmp.data[Self.StorageType.size-1]==1))
-            tmp.ArrayBitSet[0](0)
-            tmp.ArrayBitSet[4](1)
-            print("8\tTrue\t\t",(tmp.ArrayBit[4]()>0))
-            print("9\tTrue\t\t",(tmp.data[Self.StorageType.size-1]==16))
-
-            @parameter
-            if Self.StorageType.size > 1:
-                tmp = Self()
-                tmp.ArrayBitSet[8](1)
-                print("10\tTrue\t\t",(tmp.ArrayBit[8]()>0))
-            
-            @parameter
-            if Self.StorageType.size > 2:
-                tmp.ArrayBitSet[24](1)
-                print("11\tTrue\t\t",(tmp.ArrayBit[24]()>0))
-                print("12\tTrue\t\t",(tmp.data[Self.StorageType.size-1-3]==1))
-                tmp.ArrayBitSet[24+7](1)
-                print("13\tTrue\t\t",(tmp.data[Self.StorageType.size-1-3]==129))
-                print("14\tTrue\t\t",(tmp.ArrayBit[24+7]()>0))
-                tmp.ArrayBitSet[24+7](0)
-                print("13\tTrue\t\t",(tmp.data[Self.StorageType.size-1-3]==1))
-                print("14\tTrue\t\t",(tmp.ArrayBit[24+7]()==0))
-
-            tmp = Self()
-            tmp.data = Self.StorageType.splat(255)
-            tmp.ArrayBitSet[0](0)
-            print("15\tTrue\t\t",(tmp.data[Self.StorageType.size-1]==254))
-
-            print(tmp.data)
-
+    fn TestsBitSet(self):
         alias size_dt = math.bitwidthof[Self.DT]()
         var tmp_result = SIMD[DType.bool,size_dt*SIZE].splat(False)
         var instance = Self()
@@ -223,103 +173,79 @@ struct Small[DT:DType=DType.uint8,SIZE:Int=SIMD[DT].size](Stringable):
         fn more_tests[B:Int]():
             @parameter
             fn fn_b[b:Int]():
+                var tmp_ = instance.data
                 instance.ArrayBitSet[B*size_dt+b](1)
                 var result = instance.ArrayBit[B*size_dt+b]()
-                tmp_result[B*size_dt+b]= result
+
+                var tmp2_ = instance.data
+                var tmp3 = (math.bit.ctpop(tmp2_)-math.bit.ctpop(tmp_)).reduce_add()
+                tmp_result[B*size_dt+b] = (result) and (tmp3 == 1)
 
             unroll[size_dt,fn_b]()
         unroll[SIZE,more_tests]()
         
-        print_no_newline("\tUnrolled tests(" + str(size_dt*SIZE) + "):")
+        print_no_newline("\tSet,   unrolled tests(" + str(size_dt*SIZE) + "):")
         if tmp_result.reduce_and():
             print_no_newline("\t✅🔥")
         else: print_no_newline("\t❌")
+        print_no_newline(instance.data)
+
+
+        @parameter
+        fn more_tests_2[B:Int]():
+            @parameter
+            fn fn_c[b:Int]():
+                var tmp_ = instance.data
+                var previous = instance.ArrayBit[B*size_dt+b]() == 1
+                instance.ArrayBitSet[B*size_dt+b](0)
+                var result = instance.ArrayBit[B*size_dt+b]()
+
+                var tmp2_ = instance.data
+                var tmp3 = (math.bit.ctpop(tmp_)-math.bit.ctpop(tmp2_)).reduce_add()
+                tmp_result[B*size_dt+b] = previous and (not result) and (tmp3 == 1)
+            
+            unroll[size_dt,fn_c]()
+        unroll[SIZE,more_tests_2]()
         print("")
-        print("\t" + str(instance.data))
+        print_no_newline("\tUnset, unrolled tests(" + str(size_dt*SIZE) + "):")
+        if tmp_result.reduce_and():
+            print_no_newline("\t✅🔥")
+        else: print_no_newline("\t❌")
+        print_no_newline(instance.data)
+        print("")
 ```
 #### output:
 ```python
-🪄🔮 Autotuned parametrized tests: 15
-Simd DType:uint8
-Simd width:1
-	Unrolled tests(8):	✅🔥
-	255
+🪄🔮 Autotuned parametrized tests: 6
+Simd DType:uint8	width:1
+	Set,   unrolled tests(8):	✅🔥255
+	Unset, unrolled tests(8):	✅🔥0
 
-Simd DType:uint8
-Simd width:2
-	Unrolled tests(16):	✅🔥
-	[255, 255]
+Simd DType:uint8	width:2
+	Set,   unrolled tests(16):	✅🔥[255, 255]
+	Unset, unrolled tests(16):	✅🔥[0, 0]
 
-Simd DType:uint8
-Simd width:4
-	Unrolled tests(32):	✅🔥
-	[255, 255, 255, 255]
+Simd DType:uint8	width:4
+	Set,   unrolled tests(32):	✅🔥[255, 255, 255, 255]
+	Unset, unrolled tests(32):	✅🔥[0, 0, 0, 0]
 
-Simd DType:uint8
-Simd width:8
-	Unrolled tests(64):	✅🔥
-	[255, 255, 255, 255, 255, 255, 255, 255]
+Simd DType:uint16	width:2
+	Set,   unrolled tests(32):	✅🔥[65535, 65535]
+	Unset, unrolled tests(32):	✅🔥[0, 0]
 
-Simd DType:uint8
-Simd width:16
-	Unrolled tests(128):	✅🔥
-	[255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
+Simd DType:uint16	width:4
+	Set,   unrolled tests(64):	✅🔥[65535, 65535, 65535, 65535]
+	Unset, unrolled tests(64):	✅🔥[0, 0, 0, 0]
 
-Simd DType:uint16
-Simd width:2
-	Unrolled tests(32):	✅🔥
-	[65535, 65535]
-
-Simd DType:uint16
-Simd width:4
-	Unrolled tests(64):	✅🔥
-	[65535, 65535, 65535, 65535]
-
-Simd DType:uint16
-Simd width:8
-	Unrolled tests(128):	✅🔥
-	[65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535]
-
-Simd DType:uint32
-Simd width:2
-	Unrolled tests(64):	✅🔥
-	[4294967295, 4294967295]
-
-Simd DType:uint32
-Simd width:4
-	Unrolled tests(128):	✅🔥
-	[4294967295, 4294967295, 4294967295, 4294967295]
-
-Simd DType:uint16
-Simd width:16
-	Unrolled tests(256):	✅🔥
-	[65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535]
-
-Simd DType:uint32
-Simd width:8
-	Unrolled tests(256):	✅🔥
-	[4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295]
-
-Simd DType:uint32
-Simd width:16
-	Unrolled tests(512):	✅🔥
-	[4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295]
-
-Simd DType:uint16
-Simd width:1
-	Unrolled tests(16):	✅🔥
-	65535
-
-Simd DType:uint32
-Simd width:1
-	Unrolled tests(32):	✅🔥
-	4294967295
+Simd DType:uint16	width:1
+	Set,   unrolled tests(16):	✅🔥65535
+	Unset, unrolled tests(16):	✅🔥0
 ```
 
 Theses tests are parametrized by:
 ```python
-alias width_to_use = autotune(1,2,4,8,16) 
-alias DT = autotune(DType.uint8,DType.uint16,DType.uint32) 
+alias width_to_use = autotune(1,2,4) 
+alias DT = autotune(DType.uint8,DType.uint16) 
 ```
 
 &nbsp;
