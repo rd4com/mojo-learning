@@ -98,10 +98,14 @@ from autotune import autotune, search
 
 @adaptive
 fn Tests():
-    alias width_to_use = autotune(1,2,4,8,16,SIMD[DType.uint8].size) 
-    var instance = Small[width_to_use]()
+    alias width_to_use = autotune(1,2,4,8,16)
+    alias DT = autotune(DType.uint8,DType.uint16,DType.uint32) 
+    var instance = Small[DT,SIZE=width_to_use]()
+    print("Simd DType:"+ str(DT))
     print("Simd width:"+ str(width_to_use))
-    return instance.TestsBitSet()
+    instance.TestsBitSet()
+    print("")
+     
 
 fn evaluator(funcs: Pointer[fn()->None], total: Int) -> Int:
     print("🪄🔮 Autotuned parametrized tests: "+str(total))
@@ -119,6 +123,8 @@ fn run_tests():
     ]()
 
 def main():
+    print(65%16)
+    print(64//16)
     #var x = Small()
     #x.ArrayBitSet[31](1)
     #var res:Int = x.ArrayBit[31]()
@@ -126,12 +132,11 @@ def main():
     run_tests()
 
 @register_passable
-struct Small[SIZE:Int=SIMD[DType.uint8].size](Stringable):
-    alias DT = DType.uint8 #not change, require re-implementing
+struct Small[DT:DType=DType.uint8,SIZE:Int=SIMD[DT].size](Stringable):
     alias StorageType = SIMD[Self.DT,Self.SIZE]
     alias SizeOfArrayBits = Self.StorageType.size*sizeof[Self.DT]()*8
     alias MostSignificantBitPosition = Self.SizeOfArrayBits -1
-
+    alias DT_SIZE = sizeof[DT]()*8
     var data: Self.StorageType
 
     fn __init__()-> Self: return Self{
@@ -143,17 +148,22 @@ struct Small[SIZE:Int=SIMD[DType.uint8].size](Stringable):
     fn ArrayBit[index:Int](self)->Int:
         alias constrained_ArrayBit_ArrayBit = index < Self.SizeOfArrayBits
         constrained[constrained_ArrayBit_ArrayBit,"index too big"]()
-        var tmp = self.data[Self.StorageType.size-1-(index>>3)]
-        tmp &= (tmp&(1<<(index&7))) 
+        alias tmp_index = index//Self.DT_SIZE
+        alias tmp_rem = index%Self.DT_SIZE
+        var tmp = self.data[self.data.size-1-tmp_index]
+        tmp = (tmp&(1<<tmp_rem)) 
         return (tmp>0).cast[DType.bool]().to_int()
     
     fn ArrayBitSet[index:Int](inout self,value:Int):
         alias constrained_ArrayBit_ArrayBit = index < Self.SizeOfArrayBits
         constrained[constrained_ArrayBit_ArrayBit,"index too big"]()
-        var b = self.data[Self.StorageType.size-1-(index>>3)]
-        b&=(255^(1<<(index&7))) 
-        b|=(SIMD[Self.DT,1](value).cast[DType.bool]().cast[Self.DT]()<<(index&7))
-        self.data[Self.StorageType.size-1-(index>>3)]=b
+        alias tmp_index = index//Self.DT_SIZE
+        alias tmp_rem = index%Self.DT_SIZE
+        var b = self.data[self.data.size-1-tmp_index]
+        alias maxval = math.limit.max_finite[Self.DT]()
+        b&= (maxval^((SIMD[Self.DT,1](1)<<(tmp_rem))))
+        b|=(SIMD[Self.DT,1](value).cast[DType.bool]().cast[Self.DT]()<<tmp_rem)
+        self.data[self.data.size-1-tmp_index] = b
     
     fn TestsBitSet[ManualTests:Bool=False](self):
         var tmp = Self()
@@ -215,7 +225,8 @@ struct Small[SIZE:Int=SIMD[DType.uint8].size](Stringable):
             fn fn_b[b:Int]():
                 instance.ArrayBitSet[B*size_dt+b](1)
                 var result = instance.ArrayBit[B*size_dt+b]()
-                tmp_result[B*size_dt+b]=result
+                tmp_result[B*size_dt+b]= result
+
             unroll[size_dt,fn_b]()
         unroll[SIZE,more_tests]()
         
@@ -228,31 +239,87 @@ struct Small[SIZE:Int=SIMD[DType.uint8].size](Stringable):
 ```
 #### output:
 ```python
-🪄🔮 Autotuned parametrized tests: 6
+🪄🔮 Autotuned parametrized tests: 15
+Simd DType:uint8
 Simd width:1
 	Unrolled tests(8):	✅🔥
 	255
+
+Simd DType:uint8
 Simd width:2
 	Unrolled tests(16):	✅🔥
 	[255, 255]
+
+Simd DType:uint8
 Simd width:4
 	Unrolled tests(32):	✅🔥
 	[255, 255, 255, 255]
+
+Simd DType:uint8
 Simd width:8
 	Unrolled tests(64):	✅🔥
 	[255, 255, 255, 255, 255, 255, 255, 255]
+
+Simd DType:uint8
 Simd width:16
 	Unrolled tests(128):	✅🔥
 	[255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
-Simd width:32
-	Unrolled tests(256):	✅🔥
-	[255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
 
+Simd DType:uint16
+Simd width:2
+	Unrolled tests(32):	✅🔥
+	[65535, 65535]
+
+Simd DType:uint16
+Simd width:4
+	Unrolled tests(64):	✅🔥
+	[65535, 65535, 65535, 65535]
+
+Simd DType:uint16
+Simd width:8
+	Unrolled tests(128):	✅🔥
+	[65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535]
+
+Simd DType:uint32
+Simd width:2
+	Unrolled tests(64):	✅🔥
+	[4294967295, 4294967295]
+
+Simd DType:uint32
+Simd width:4
+	Unrolled tests(128):	✅🔥
+	[4294967295, 4294967295, 4294967295, 4294967295]
+
+Simd DType:uint16
+Simd width:16
+	Unrolled tests(256):	✅🔥
+	[65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535]
+
+Simd DType:uint32
+Simd width:8
+	Unrolled tests(256):	✅🔥
+	[4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295]
+
+Simd DType:uint32
+Simd width:16
+	Unrolled tests(512):	✅🔥
+	[4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295, 4294967295]
+
+Simd DType:uint16
+Simd width:1
+	Unrolled tests(16):	✅🔥
+	65535
+
+Simd DType:uint32
+Simd width:1
+	Unrolled tests(32):	✅🔥
+	4294967295
 ```
 
 Theses tests are parametrized by:
 ```python
-alias width_to_use = autotune(1,2,4,8,16,SIMD[DType.uint8].size) 
+alias width_to_use = autotune(1,2,4,8,16) 
+alias DT = autotune(DType.uint8,DType.uint16,DType.uint32) 
 ```
 
 &nbsp;
