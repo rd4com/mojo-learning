@@ -29,6 +29,9 @@ first steps and dancing
 # [📋 Traits: accept any types that comply to requirements](tutorials/traits.md)
 accept types based on some requirements
 
+# [SIMD: 🔢✖️2️⃣🟰❪2️⃣,4️⃣,6️⃣,8️⃣❫](simd.md)
+perform an operation on multiple numbers
+
 # [🧬 Parameters, Alias, Struct parameter deduction, more](tutorials/parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
 
