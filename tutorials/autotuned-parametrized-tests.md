@@ -147,6 +147,7 @@ struct Small[DT:DType=DType.uint8,SIZE:Int=SIMD[DT].size](Stringable):
     fn ArrayBit[index:Int](self)->Int:
         alias constrained_ArrayBit_ArrayBit = index < Self.SizeOfArrayBits
         constrained[constrained_ArrayBit_ArrayBit,"index too big"]()
+        constrained[index>=0,"index < 0"]()
         alias tmp_index = index//Self.DT_SIZE
         alias tmp_rem = index%Self.DT_SIZE
         var tmp = self.data[self.data.size-1-tmp_index]
@@ -156,6 +157,7 @@ struct Small[DT:DType=DType.uint8,SIZE:Int=SIMD[DT].size](Stringable):
     fn ArrayBitSet[index:Int](inout self,value:Int):
         alias constrained_ArrayBit_ArrayBit = index < Self.SizeOfArrayBits
         constrained[constrained_ArrayBit_ArrayBit,"index too big"]()
+        constrained[index>=0,"index < 0"]()
         alias tmp_index = index//Self.DT_SIZE
         alias tmp_rem = index%Self.DT_SIZE
         var b = self.data[self.data.size-1-tmp_index]
