@@ -1,8 +1,8 @@
 # 🔁 Python land and mojo land, PythonObject
 
 [PythonObject](https://docs.modular.com/mojo/stdlib/python/object.html) is a mojo type that can store python objects of any python class (int, list,ndarray..)
-- can "travel" trough **mojo functions**, as a PythonObject, but can also be passed to **python functions**, as a PythonObject.
-- can go back and forth between thoses two worlds.
+- can "travel" through **mojo functions**, as a PythonObject, but can also be passed to **python functions**, as a PythonObject.
+- can go back and forth between those two worlds.
 - is understood both by python and mojo
 
 ### mojo->python
@@ -68,7 +68,7 @@ fn numpy_array_from_mojo() raises -> PythonObject:
     #mojo have ranges too, that one is a mojo one   https://docs.modular.com/mojo/stdlib/builtin/range.html
     for i in range(range_size):  #i is a mojo Int 
         #append is a python function, mojo find it inside the PythonObject
-        x.append(i) #i get converted to a python object trough the __init__ function of PythonObject
+        x.append(i) #i get converted to a python object through the __init__ function of PythonObject
 
     return np.cos(np.array(x)*np.pi*2.0/256.0)
     #np.cos return a python object of class ndarray

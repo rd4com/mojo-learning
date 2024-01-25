@@ -7,7 +7,7 @@ The changelogs are availables for us [here](https://docs.modular.com/mojo/change
 ## What is a changelog
 It is an entry that describe the changes made, new features and bug fixed of an update.
 
-## How are they usefull
+## How are they useful
 
 Provides a clear listing of new features that are now availables.
 
@@ -15,7 +15,7 @@ They also helps to maintain existing code by adapting to changes.
 
 ## Practical example
 
-Lets understand how usefull it is by partially analysing a real changelog.
+Let's understand how useful it is by partially analysing a real changelog.
 
 ### [v0.5.0 (2023-11-2)](https://docs.modular.com/mojo/changelog.html#v0.5.0-2023-11-2)
 From a glance, we can see that SIMD got a new function:

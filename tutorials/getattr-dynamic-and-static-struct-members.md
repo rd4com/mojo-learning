@@ -57,7 +57,7 @@ struct PackageHelper:
     def __getattr__(inout self,name:StringLiteral) ->PythonObject:
         return self.my_package.__getattr__(name) 
 ```
-The ```__getattr__()``` implementation is quite small, but is powerfull:
+The ```__getattr__()``` implementation is quite small, but is powerful:
 
 If a struct do not define a requested attribute, it will call that function and pass the name of it.
 
@@ -103,7 +103,7 @@ def main():
   - temp_value = PythonObject(1.0)
     - temp_value is of PythonObject type
   - temp_value = 1.5
-    - instanciated by PythonObject again
+    - instantiated by PythonObject again
 
 
 ```try:``` and ```except:``` blocks can be placed in both ```def()``` and ```fn()``` functions

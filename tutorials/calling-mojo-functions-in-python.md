@@ -7,7 +7,7 @@
 
 
 
-Building a wrapper with all thoses features:
+Building a wrapper with all those features:
 - [VariadicList](https://docs.modular.com/mojo/stdlib/utils/list.html#variadiclist) for the arguments types
 - [@noncapturing](https://docs.modular.com/mojo/changelog.html#week-of-2023-04-10) to keep the global scope clean
 - [import_module](https://docs.modular.com/mojo/stdlib/python/python.html#import_module)

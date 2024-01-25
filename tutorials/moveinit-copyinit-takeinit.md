@@ -1,7 +1,7 @@
 # 🏗️ moveinit 💿💿 copyinit 🐿️ takeinit
 > using v0.4.0
 
-Let's have a look at theses features trough an example,
+Let's have a look at theses features through an example,
 
 they looks like this :
 
@@ -13,11 +13,11 @@ they looks like this :
     -  original is owned, ```__del__``` will never be called on it
     -  original can't be used in the program anymore 
     -  **^ transfer suffix** is used to call moveinit
-    -  usefull for making sure an instance don't have copies thus is unique
+    -  useful for making sure an instance don't have copies thus is unique
   - ```fn __takeinit__(inout self, inout original: Self)```
     - original can be modified
     - ```__del()__``` will get called on original on last use 
-    - usefull to affect a conditional in ```__del__()```
+    - useful to affect a conditional in ```__del__()```
       - example: don't free pointer if self.dontfree == true
 
 ### The illustration:
@@ -102,7 +102,7 @@ we moved original to still_original and took original as ```owned```:
 
 &nbsp;
 
-## why moveinit is important and usefull
+## why moveinit is important and useful
 We can make sure that an instance have no copies in the program,
 
 when we to pass it to a function, the function could return it:
@@ -145,7 +145,7 @@ fn __takeinit__(inout self, inout original: Self)
 ```
   - original can be modified
   - ```__del()__``` will get called on original on last use 
-  - usefull to affect a conditional in ```__del__()```
+  - useful to affect a conditional in ```__del__()```
     - example: don't free pointer if self.dontfree == true
 
 ### Example

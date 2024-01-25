@@ -14,7 +14,7 @@ In that example, we are optimizing for speed, and will measure it using ```now()
 ```python
 from autotune import autotune, search
 
-#let's grab it to demonstate the autotune
+#let's grab it to demonstrate the autotune
 from algorithm import vectorize
 
 #to determine the maximum value of an integer
