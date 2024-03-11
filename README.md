@@ -32,6 +32,9 @@ accept types based on some requirements
 # [SIMD: 🔢✖️2️⃣🟰❪2️⃣,4️⃣,6️⃣,8️⃣❫](tutorials/simd.md)
 perform an operation on multiple numbers
 
+# [👜 Variant, a type that can hold values of different types](./tutorials/variant.md)
+The current type it holds can change and be checked
+
 # [🧬 Parameters, Alias, Struct parameter deduction, more](tutorials/parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
 
