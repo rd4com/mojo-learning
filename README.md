@@ -35,6 +35,9 @@ perform an operation on multiple numbers
 # [👜 Variant, a type that can hold values of different types](./tutorials/variant.md)
 The current type it holds can change and be checked
 
+# [🐍🔍 type-checking a PythonObject](./tutorials/type-check-class-of-pythonobject.md)
+For example, to iterate python arrays that might contains objects of various classes
+
 # [🧬 Parameters, Alias, Struct parameter deduction, more](tutorials/parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
 
