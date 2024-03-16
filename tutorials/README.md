@@ -76,7 +76,7 @@ Pointer[Int] of squared numbers
 # [🧹 ASAP: will call ```__del__``` when last used](memory-asap-and-destructor-behaviours.md)
 when do del get called on instance
 
-# [🏗️ moveinit 💿💿 copyinit 🐿️ takeinit](moveinit-copyinit-takeinit.md)
+# [🏗️ moveinit 💿💿 copyinit 🐿️ non-destructing move](moveinit-copyinit-takeinit.md)
 implement in struct: copy of instance, move, taking move
 
 # 🤙 [callbacks trough parameters](callbacks-trough-parameters.md)

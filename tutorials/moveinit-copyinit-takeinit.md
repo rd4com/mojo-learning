@@ -1,5 +1,5 @@
-# 🏗️ moveinit 💿💿 copyinit 🐿️ takeinit
-> using v0.4.0
+# 🏗️ moveinit 💿💿 copyinit 🐿️ non-destructing move
+> using v24.0.1
 
 Let's have a look at theses features trough an example,
 
@@ -14,11 +14,7 @@ they looks like this :
     -  original can't be used in the program anymore 
     -  **^ transfer suffix** is used to call moveinit
     -  usefull for making sure an instance don't have copies thus is unique
-  - ```fn __takeinit__(inout self, inout original: Self)```
-    - original can be modified
-    - ```__del()__``` will get called on original on last use 
-    - usefull to affect a conditional in ```__del__()```
-      - example: don't free pointer if self.dontfree == true
+
 
 ### The illustration:
 ```python
@@ -139,72 +135,51 @@ fn from_owned(owned arg:my_type):
 
 &nbsp;
 
- # 🐿️ takeinit
+ # 🐿️ takeinit (non-destructing move)
+Takeinit has been depreciated with [Changelog: v0.7.0 (2024-01-25)](https://docs.modular.com/mojo/changelog#v070-2024-01-25).
+
+**Explanation**: traits got introduced into [Changelog v0.6.0 (2023-12-04)](https://docs.modular.com/mojo/changelog#v060-2023-12-04),
+
+It now makes it possible to give the user complete choice on whether a type should implement a "non-destructive move" or not.
+
+In consequence, the transfer suffix (```^```) is no longer shared between moveinit and takeinit.
+
+This reduce the the probability of a user being confused on wich one will be called.
+
+The transfer suffix is now used only with moveinit.
+
+Here is an example that illustrate how traits provides a better way to implement the "non-destructing move" ability.
+
 ```python
-fn __takeinit__(inout self, inout original: Self)
+trait ValueMovable:
+    fn take_value_of(inout self:Self, inout other: Self): ...
+
+struct MyStruct(ValueMovable):
+    var value: String
+    fn take_value_of(inout self:Self, inout other: Self):
+        self.value = other.value
+        other.value = "none"
+    fn __init__(inout self,val:String): self.value=val
+
+def main():
+    var a = MyStruct("the value to take")
+    var b = MyStruct("empty value")
+    b.take_value_of(a)
+
+    print(a.value) #none
+    print(b.value) #the value to take
 ```
-  - original can be modified
-  - ```__del()__``` will get called on original on last use 
-  - usefull to affect a conditional in ```__del__()```
-    - example: don't free pointer if self.dontfree == true
-
-### Example
- ```python
-struct my_type[T:AnyType]:
-    var ptr:Pointer[T]
-    var freed_allowed:Bool
-    
-    fn __init__(inout self,value:T):
-        self.ptr=self.ptr.alloc(1)
-        self.ptr.store(0,value)
-        self.freed_allowed=True
-        print("init")
+**B took the value of A**, and A still exist.
 
 
-    fn __takeinit__(inout self, inout existing: Self):
-        self.ptr = existing.ptr
-        self.freed_allowed=existing.freed_allowed
-        existing.freed_allowed = False
-        print("takeinit")
+The value of A had been moved, without destructing A.
 
-    fn __del__(owned self):
-        if self.freed_allowed == True:
-            print("del with free")
-            self.ptr.free()
-        else:
-            print("del without free")
-        
+That operation can be refered to as a "non-destructing move".
 
-fn main():
-    var original = my_type[Int](1)
+That is all there is to it! 
 
-    var x = original
-    #delete original at last use, here:
-    _=original^ 
 
-    print("freed allowed: ",x.freed_allowed)
-    #x gets deleted here at its last use
-```
-### Complete output:
-    init
-    takeinit
-    del without free
-    del with free
-    freed allowed:  True
-*note: when original gets deleted, it print accordingly: del without free*
-
-&nbsp;
-
-It is interesting because ```__del()__``` is called on original.
-
-With ```__moveinit()__``` it is not called on the original.
-
-With ```__copyinit()__``` original can't be modified because it is borrowed.
-
-But with ```__takeinit()__```,original can be modified:
-  - ```existing.freed_allowed = False```
 
 
 &nbsp;
 
-> Need further work and help for \_\_takeinit\_\_(), the page will get updated
