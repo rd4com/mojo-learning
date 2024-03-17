@@ -1,6 +1,6 @@
 # 🏃 (SPEED) Parametric struct through CPU registers.
 
-> with v0.5.0
+> with v24.1.0
 
 Some types are store in the ram. each time we access the ram it takes time.
 
@@ -26,18 +26,13 @@ Note: mojo comes with builtin register passables Tuple types already.
 
 ```python
 @register_passable("trivial")
-struct naive_register_tuple[T_FIRST:AnyType,T_SECOND:AnyType]:
+struct naive_register_tuple[T_FIRST:AnyRegType,T_SECOND:AnyRegType]:
     var first:T_FIRST
     var second:T_SECOND
     
-    #need to return Self type, wich is naive_register_tuple
-    fn __init__(arg_one:T_FIRST,arg_two:T_SECOND) -> Self:
-
-        var tmp = Self{
-            first:arg_one,
-            second:arg_two
-        }
-        return tmp
+    fn __init__(inout self, arg_one:T_FIRST,arg_two:T_SECOND):
+        self.first = arg_one
+        self.second= arg_two
     
     fn mutate_first(inout self,val:T_FIRST):
         self.first = val
@@ -46,7 +41,6 @@ struct naive_register_tuple[T_FIRST:AnyType,T_SECOND:AnyType]:
         self.second = val
 
     
-
 fn main():
 
     #explicitely specify the types:
@@ -68,15 +62,6 @@ fn main():
     #get fields individually
     let val_first = val2.first
     let val_second:val2.T_SECOND = val2.second
-
-    #move the value to another variable
-    let new_val = val^
-    print(new_val.first)
-
-    #Create a DynamicVector for it:
-    var v = DynamicVector[naive_register_tuple[Int,Bool]]()
-    v.push_back(naive_register_tuple[Int,Bool](1,True))
-    v.push_back(naive_register_tuple(2,False))
 ```
 
 Many methods could be implemented on top of a register_passable struct.
@@ -88,15 +73,24 @@ Examples:
 - ```__add__``` to perform ```new_value = value_a+value_b```
 - many more
 
-### register_passable
+### AnyRegType
 
-> Thoses values will be passed trough CPU registers
+> It represent any register-passable mojo data type.
 
-The ```__init__()``` function looks different than usual, it returns ```Self```.
+When making a register-passable struct,
 
-usually, self is passed as inout: ```__init__(inout self)```
+the types of the members must be register-passable aswel.
 
-register_passable is slightly different in that aspect.
+This is why the struct made in the above example are parametrized:
+
+```python
+struct naive_register_tuple[T_FIRST:AnyRegType,T_SECOND:AnyRegType]:
+    var first:T_FIRST
+    var second:T_SECOND
+```
+
+
+
 
 
 ### trivial
@@ -116,10 +110,6 @@ see [Documentation: trivial types](https://docs.modular.com/mojo/programming-man
 
 # A new tool in the 🧰 !
 One clear benefit is the speed.
-
-Also, in ```Version <= 0.5```, the register_passable types can be used with types such as DynamicVector.
-
-(version is ```0.5``` when this tutorial was written)
 
 Another significant benefit is that it creates the opportunity to design/implement new/different types.
 
