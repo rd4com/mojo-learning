@@ -5,7 +5,7 @@ Execute a function at comptime
 ```python
 #can be used both during comptime and runtime
 fn squared(n:Int)->Pointer[Int]:
-    let tmp = Pointer[Int].alloc(n)
+    var tmp = Pointer[Int].alloc(n)
     for i in range(n):
         tmp.store(i,i*i)
     return tmp
