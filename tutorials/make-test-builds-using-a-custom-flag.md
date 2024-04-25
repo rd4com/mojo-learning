@@ -16,17 +16,17 @@ fn expect[message:StringLiteral ](cond:Bool):
 
     if cond: 
         #print in green
-        print_no_newline(chr(27))
-        print_no_newline("[42m")
+        print(chr(27),end='')
+        print("[42m",end='')
     else: 
         #print in red
-        print_no_newline(chr(27))
-        print_no_newline("[41m")
+        print(chr(27),end='')
+        print("[41m",end='')
 
-    print_no_newline(message)
+    print(message,end='')
     
     #reset to default colors
-    print_no_newline(chr(27))
+    print(chr(27),end='')
     print("[0m")
 
 fn main():
