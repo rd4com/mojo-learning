@@ -23,7 +23,7 @@ Let's start parametrizing!
 
 # 🌴🧋 ```my_app.mojo``` 🧉🌴
 
-```python
+```mojo
 from sys.param_env import env_get_int, env_get_string
 from sys.param_env import is_defined
 
