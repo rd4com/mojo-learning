@@ -11,6 +11,10 @@
 
 
 &nbsp; 
+
+# [🟢 Let's ```mojo build -D your="own" version=1 app.🔥``` with ``` 🛡️Constrained```](./use-parameters-to-create-or-integrate-workflow.md)
+Integrate apps with existing build scripts, for example
+
 # [🔁 Python land and mojo land, PythonObject](python-world-mojo-world.md) 
 note: need revision for better accessibility
 
@@ -34,10 +38,11 @@ accept types based on some requirements
 perform an operation on multiple numbers
 
 # [👜 Variant, a type that can hold values of different types](./variant.md)
-The current type it holds can change and be checked
+The current type it holds can change and be checked 
 
 # [🐍🔍 type-checking a PythonObject](./type-check-class-of-pythonobject.md)
 For example, to iterate python arrays that might contains objects of various classes 
+
 
 # [🧬 Parameters, Alias, Struct parameter deduction, more](parameters-alias-struct-parameter-deduction.md)
 Parameterize! (compile time meta-programming) 
