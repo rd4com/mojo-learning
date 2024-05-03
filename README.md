@@ -9,7 +9,7 @@
 ### [🫵 corrections and contributions](contribute.md) 
 &nbsp; 
 
-# [🟢 Let's ```mojo build -D your="own" version=1 app.🔥``` with ``` 🛡️Constrained```](./tutorials/use-parameters-to-create-or-integrate-workflow.md)
+# [🟢 Let's ```mojo build -D your="own" -D version=1 app.🔥``` with ``` 🛡️Constrained```](./tutorials/use-parameters-to-create-or-integrate-workflow.md)
 Integrate apps with existing build scripts, for example
 
 # [🔁 Python land and mojo land, PythonObject](tutorials/python-world-mojo-world.md) 

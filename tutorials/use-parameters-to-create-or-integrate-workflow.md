@@ -1,4 +1,4 @@
- # 🟢 Let's ```mojo build -D your="own" version=1 app.🔥``` with ``` 🛡️Constrained```
+ # 🟢 Let's ```mojo build -D your="own" -D version=1 app.🔥``` with ``` 🛡️Constrained```
 
 
 You gonna learn how to parametrize your app, starting from the ```🔨 mojo build``` command ⬅️🟤🟣🔵.
