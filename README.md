@@ -12,6 +12,10 @@
 # [🟢 Let's ```mojo build -D your="own" -D version=1 app.🔥``` with ``` 🛡️Constrained```](./tutorials/use-parameters-to-create-or-integrate-workflow.md)
 Integrate apps with existing build scripts, for example
 
+# [`SIMD` is a type, with `methods` and `operators` !](./tutorials/simd-is-a-type-with-methods-and-operators.md)
+
+`SIMD` vectors are first-class citizens.
+
 # [🔁 Python land and mojo land, PythonObject](tutorials/python-world-mojo-world.md) 
 note: need revision for better accessibility
 
