@@ -303,7 +303,7 @@ Hope you enjoyed it,
 
 `SIMD` is easy and it has many more `methods`.
 
-Many people do `AI` with because it is realy fast,
+Many people do `AI` with because it is really fast,
 
 but it is good for making music too !
 
